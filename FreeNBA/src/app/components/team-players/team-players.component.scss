@@ -1,0 +1,25 @@
+.header::before {
+  content: '';
+  background-image: url('https://cdn.nba.net/nba-drupal-prod/2018-08/leaguev3.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.header {
+  div {
+    padding: 20px;
+    font-size: 26px;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <mat-grid-list cols="3" rowHeight="180px" class="header">
+    <mat-grid-tile colspan="2" rowspan="1">
+      <div>
+        NBA Games <br /> Seasons <b>2017</b> and <b>2018</b>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <div>
+        <img height="60" src="https://www.stickpng.com/assets/images/58428defa6515b1e0ad75ab4.png" alt="NBA Logo" />
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-paginator [length]="pagination.total_count"
+                 [pageSize]="25"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 (page)="changePage($event)">
+  </mat-paginator>
+
+  <mat-grid-list cols="5" rowHeight="50px" *ngFor="let game of games" class="game">
+    <mat-grid-tile colspan="2" rowspan="1">
+      <strong *ngIf="game.home_team" class="text-right team" [routerLink]="['/team-players/' + game.home_team.id]"> {{game.home_team.full_name}}</strong>
+      <img width="40" src="https://www.proballers.com/api/getTeamLogo?id=573" alt="Team1" />
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      {{game.home_team_score}} - {{game.visitor_team_score}}
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2"
+                   rowspan="1">
+      <img width="40" src="https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_500x500/nyk.png" alt="Team2" />
+      <strong *ngIf="game.visitor_team" class="team" [routerLink]="['/team-players/' + game.visitor_team.id]">{{game.visitor_team.full_name}}</strong>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="5" rowspan="1">
+      {{game.date| date:'EEEE,'}}
+      &nbsp;
+      <strong> {{game.date| date:'MMMM d'}} </strong>
+      {{game.date| date:', y h:mm'}}
+    </mat-grid-tile>
+    <mat-divider></mat-divider>
+  </mat-grid-list>
+
+</div>

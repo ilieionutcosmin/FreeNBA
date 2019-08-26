@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-grid-list cols="3" rowHeight="180px" class="header">
+    <mat-grid-tile colspan="2" rowspan="1">
+      <div>
+        <b *ngIf="team">{{team.full_name}}</b><br />
+        <button mat-raised-button color="primary" [routerLink]="['/games']">Back</button>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <div>
+        <img height="160" src="https://www.proballers.com/api/getTeamLogo?id=573" alt="Team Logo" />
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="5" rowHeight="100px" *ngFor="let player of players" class="player">
+    <mat-grid-tile colspan="1" rowspan="1">
+      <img width="80" src="https://www.sccpre.cat/mypng/detail/124-1248765_3-lebron-james-recorded-his-11th-50-point.png" alt="Player image" />
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1">
+      <b> {{player.first_name}}&nbsp;{{player.last_name}}</b>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      {{player.height_feet}}&nbsp;{{player.weight_pounds}}
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      {{player.position}}
+    </mat-grid-tile>
+
+    <mat-divider></mat-divider>
+  </mat-grid-list>
+</div>
